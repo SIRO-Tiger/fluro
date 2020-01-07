@@ -43,11 +43,13 @@ class Router {
   ///
   Future navigateTo(BuildContext context, String path,
       {bool replace = false,
+        String routeSettings = null,
       bool clearStack = false,
       TransitionType transition,
       Duration transitionDuration = const Duration(milliseconds: 250),
       RouteTransitionsBuilder transitionBuilder}) {
     RouteMatch routeMatch = matchRoute(context, path,
+        routeSettings: routeSettings == null ? null : RouteSettings(name: routeSettings),
         transitionType: transition,
         transitionsBuilder: transitionBuilder,
         transitionDuration: transitionDuration);
